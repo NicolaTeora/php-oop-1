@@ -1,4 +1,27 @@
-<?php include __DIR__ . '/Models/Production.php' ?>
+<!-- create un file index.php in cui è definita una classe Production -->
+
+<?php 
+
+include __DIR__ . '/Models/Production.php'; 
+include __DIR__ . '/Models/Type.php'; 
+
+// Aggiornate le informazioni stampate a schermo con il genere.
+$type_film_action = new Type("action","The action film is a film genre which predominantly features chase sequences, fights, shootouts, explosions, and stunt work");
+$type_film_drama = new Type("drama", "Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters");
+
+// Istanziate poi, almeno due, oggetti Production e stampate a schermo i loro valori.
+$film_batman = new Production("superman", "eng", "9", $type_film_action);
+
+$film_superman = new Production("batman", "eng", "8,5", $type_film_action);
+
+$film_la_vita_è_bella = new Production("la vita è bella", "ita", "9,5", $type_film_drama);
+
+var_dump($film_batman);
+
+# lista di produzioni
+$films = [$film_batman, $film_superman, $film_la_vita_è_bella];
+
+?>
 
 <!-- BONUS 1
 Creare un layout completo per stampare a schermo una lista di produzioni. -->
@@ -20,13 +43,16 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
             <?php foreach($films as $film): ?>
             <ul>
                 <li>
-
+                    <!-- titolo -->
                 </li>
                 <li>
-                 
+                    <!-- lingua -->
                 </li>
                 <li>
-                 
+                    <!-- voto -->
+                </li>
+                <li>
+                    <!-- genere -->
                 </li>
             </ul>
             <?php endforeach; ?>
