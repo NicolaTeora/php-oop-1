@@ -8,7 +8,9 @@ All'interno della classe dovrete gestire
 
 - un titolo,
 - una lingua e
-- un voto (su una scala da 1 a 10). La classe deve avere le sue variabili d'istanza, il costruttore e i metodi.
+- un voto (su una scala da 1 a 10).
+
+La classe deve avere le sue variabili d'istanza, il costruttore e i metodi.
 
 Istanziate poi almeno due oggetti Production e stampate a schermo i loro valori.
 
