@@ -12,4 +12,8 @@ class Type {
         $this-> name = $name;
         $this-> description = $description;
     }
+    #metodi
+    public function get_name() { return $this->name; }
+    public function get_description() { return $this->description; }
+
 }

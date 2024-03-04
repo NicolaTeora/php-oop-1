@@ -10,13 +10,11 @@ $type_film_action = new Type("action","The action film is a film genre which pre
 $type_film_drama = new Type("drama", "Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters");
 
 // Istanziate poi, almeno due, oggetti Production e stampate a schermo i loro valori.
-$film_batman = new Production("superman", "eng", "9", $type_film_action);
+$film_superman = new Production("superman", "eng", "9", $type_film_action);
 
-$film_superman = new Production("batman", "eng", "8,5", $type_film_action);
+$film_batman = new Production("batman", "eng", "8,5", $type_film_action);
 
 $film_la_vita_è_bella = new Production("la vita è bella", "ita", "9,5", $type_film_drama);
-
-var_dump($film_batman);
 
 # lista di produzioni
 $films = [$film_batman, $film_superman, $film_la_vita_è_bella];
@@ -44,15 +42,20 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
             <ul>
                 <li>
                     <!-- titolo -->
+                    <?= $film->title ?>
                 </li>
                 <li>
                     <!-- lingua -->
+                    <?= $film->lenguage ?>
                 </li>
                 <li>
                     <!-- voto -->
+                    <?= $film->vote ?>
                 </li>
                 <li>
                     <!-- genere -->
+                    Genere: <?= $film->type->name . "<br>" ?> 
+                    Description: <?= $film->type->description ?>
                 </li>
             </ul>
             <?php endforeach; ?>
