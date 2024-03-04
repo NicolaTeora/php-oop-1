@@ -39,23 +39,23 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
         <div class="container">
             <h1>OPP programming</h1>
             <?php foreach($films as $film): ?>
-            <ul>
-                <li>
+            <ul class="list-group mt-4">
+                <li class="list-group-item list-group-item-action">
                     <!-- titolo -->
                     <?= $film->title ?>
                 </li>
-                <li>
+                <li class="list-group-item list-group-item-action">
                     <!-- lingua -->
                     <?= $film->lenguage ?>
                 </li>
-                <li>
+                <li class="list-group-item list-group-item-action">
                     <!-- voto -->
                     <?= $film->vote ?>
                 </li>
-                <li>
+                <li class="list-group-item list-group-item-action">
                     <!-- genere -->
-                    Genere: <?= $film->type->name . "<br>" ?> 
-                    Description: <?= $film->type->description ?>
+                    <b>Genere: </b><?= $film->type->name . "<br>" ?> 
+                    <b>Description: </b><?= $film->type->description ?>
                 </li>
             </ul>
             <?php endforeach; ?>
