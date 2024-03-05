@@ -2,19 +2,19 @@
 
 <?php 
 
-include __DIR__ . '/Models/Production.php'; 
-include __DIR__ . '/Models/Type.php'; 
+require_once __DIR__ . '/Models/Production.php'; 
+require_once __DIR__ . '/Models/Type.php'; 
 
 // Aggiornate le informazioni stampate a schermo con il genere.
 $type_film_action = new Type("action","The action film is a film genre which predominantly features chase sequences, fights, shootouts, explosions, and stunt work");
 $type_film_drama = new Type("drama", "Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters");
 
 // Istanziate poi, almeno due, oggetti Production e stampate a schermo i loro valori.
-$film_superman = new Production("superman", "eng", "9", $type_film_action);
+$film_superman = new Production("superman", "eng", 9, $type_film_action);
 
-$film_batman = new Production("batman", "eng", "8,5", $type_film_action);
+$film_batman = new Production("batman", "eng", 8.5, $type_film_action);
 
-$film_la_vita_è_bella = new Production("la vita è bella", "ita", "9,5", $type_film_drama);
+$film_la_vita_è_bella = new Production("la vita è bella", "ita", 9.5, $type_film_drama);
 
 # lista di produzioni
 $films = [$film_batman, $film_superman, $film_la_vita_è_bella];
@@ -37,28 +37,32 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
 <body>
     <div id="app">
         <div class="container">
-            <h1>OPP programming</h1>
-            <?php foreach($films as $film): ?>
-            <ul class="list-group mt-4">
-                <li class="list-group-item list-group-item-action">
-                    <!-- titolo -->
-                    <?= $film->title ?>
-                </li>
-                <li class="list-group-item list-group-item-action">
-                    <!-- lingua -->
-                    <?= $film->lenguage ?>
-                </li>
-                <li class="list-group-item list-group-item-action">
-                    <!-- voto -->
-                    <?= $film->vote ?>
-                </li>
-                <li class="list-group-item list-group-item-action">
-                    <!-- genere -->
-                    <b>Genere: </b><?= $film->type->name . "<br>" ?> 
-                    <b>Description: </b><?= $film->type->description ?>
-                </li>
-            </ul>
-            <?php endforeach; ?>
+            <h1 class="text-center">OPP programming</h1>
+            <div class="row">
+                <?php foreach($films as $film): ?>
+                <div class="col-4">
+                    <ul class="list-group mt-4">
+                        <li class="list-group-item list-group-item-action">
+                            <b>Title: </b>
+                            <?= $film->title ?>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <b>Lenguage: </b>
+                            <?= $film->lenguage ?>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <b>Vote: </b>
+                            <?= $film->vote ?>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <!-- genere -->
+                            <b>Genere: </b><?= $film->type->name . "<br>" ?> 
+                            <b>Description: </b><?= $film->type->description ?>
+                        </li>
+                    </ul>
+                </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 
