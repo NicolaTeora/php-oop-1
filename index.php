@@ -4,20 +4,8 @@
 
 require_once __DIR__ . '/Models/Production.php'; 
 require_once __DIR__ . '/Models/Type.php'; 
-
-// Aggiornate le informazioni stampate a schermo con il genere.
-$type_film_action = new Type("action","The action film is a film genre which predominantly features chase sequences, fights, shootouts, explosions, and stunt work");
-$type_film_drama = new Type("drama", "Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters");
-
-// Istanziate poi, almeno due, oggetti Production e stampate a schermo i loro valori.
-$film_superman = new Production("superman", "eng", 9, $type_film_action);
-
-$film_batman = new Production("batman", "eng", 8.5, $type_film_action);
-
-$film_la_vita_è_bella = new Production("la vita è bella", "ita", 9.5, $type_film_drama);
-
-# lista di produzioni
-$films = [$film_batman, $film_superman, $film_la_vita_è_bella];
+require_once __DIR__ . '/Models/Movie.php'; 
+require_once __DIR__ . '/DB/data.php';
 
 ?>
 
@@ -44,21 +32,28 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
                     <ul class="list-group mt-4">
                         <li class="list-group-item list-group-item-action">
                             <b>Title: </b>
-                            <?= $film->title ?>
+                            <?= $film->get_title() ?>
                         </li>
                         <li class="list-group-item list-group-item-action">
                             <b>Lenguage: </b>
-                            <?= $film->lenguage ?>
+                            <?= $film->get_lenguage() ?>
                         </li>
                         <li class="list-group-item list-group-item-action">
                             <b>Vote: </b>
-                            <?= $film->vote ?>
+                            <?= $film->get_vote() ?>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <!-- genere -->
-                            <b>Genere: </b><?= $film->type->name . "<br>" ?> 
-                            <b>Description: </b><?= $film->type->description ?>
+                            <b>Genere: </b><?= $film->get_type()->name . "<br>" ?> 
+                            <b>Description: </b><?= $film->get_type()->description . "<br>" ?>
                         </li>
+                        
+                        <li class="list-group-item list-group-item-action">
+                            <b>Profits (mln): </b><?= $film->profits ?>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <b>Duration (min): </b><?= $film->get_duration() ?>
+                        </li>
+                        
                     </ul>
                 </div>
                 <?php endforeach; ?>
