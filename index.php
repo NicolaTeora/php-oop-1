@@ -46,14 +46,18 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
                             <b>Genere: </b><?= $film->get_type()->name . "<br>" ?> 
                             <b>Description: </b><?= $film->get_type()->description . "<br>" ?>
                         </li>
-                        
+                        <?php if ($film instanceof Movie): ?>
                         <li class="list-group-item list-group-item-action">
                             <b>Profits (mln): </b><?= $film->profits ?>
                         </li>
                         <li class="list-group-item list-group-item-action">
                             <b>Duration (min): </b><?= $film->get_duration() ?>
                         </li>
-                        
+                        <?php elseif ($film instanceof SerieTV): ?>
+                        <li class="list-group-item list-group-item-action">
+                            <b>Seasons: </b> <?= $film->seasons?>
+                        </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
                 <?php endforeach; ?>
