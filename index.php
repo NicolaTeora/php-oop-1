@@ -53,7 +53,7 @@ Creare un layout completo per stampare a schermo una lista di produzioni. -->
                         <li class="list-group-item list-group-item-action">
                             <b>Duration (min): </b><?= $film->get_duration() ?>
                         </li>
-                        <?php elseif ($film instanceof SerieTV): ?>
+                        <?php elseif ($film instanceof SerieTv): ?>
                         <li class="list-group-item list-group-item-action">
                             <b>Seasons: </b> <?= $film->seasons?>
                         </li>
