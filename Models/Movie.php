@@ -12,10 +12,10 @@ class Movie extends Production {
 
     // il costruttore e i metodi.
     # costruttore
-    function __constructor($title, $lenguage, $vote, Type $type, $profits, $duration) {
+    function __construct($title, $lenguage, $vote, Type $type, $profits, $duration) {
         // usare la dicitura parent:: per passare il construct della classe genitore
         // ed evitare il polimorfismo (sovrascrittura secondo W3S)
-        parent::__constructor($title, $lenguage, $vote, $type);
+        parent::__construct($title, $lenguage, $vote, $type);
 
         #aggiungere gli attributi propri della classe figlia
         $this->profits = $profits;

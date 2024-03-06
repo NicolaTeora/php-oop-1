@@ -11,15 +11,14 @@ class SerieTv extends Production {
 
     // il costruttore e i metodi.
     # costruttore
-    function __constructor($title, $lenguage, $vote, Type $type, $seasonsn) {
+    function __construct(string $title, string $lenguage, int $vote, Type $type, int $seasons) {
         // usare la dicitura parent:: per passare il construct della classe genitore
         // ed evitare il polimorfismo (sovrascrittura secondo W3S)
-        parent::__constructor($title, $lenguage, $vote, $type);
+        parent::__construct($title, $lenguage, $vote, $type);
 
         #aggiungere gli attributi propri della classe figlia
         $this->seasons = $seasons;
-    }
-
+    }    
     # metodi
-    function get_seasons(){ return $this->seasons; }
+    //function get_seasons(){ return $this->seasons; }
 }
